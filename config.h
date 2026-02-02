@@ -1,0 +1,9 @@
+#pragma once
+#define SPLIT_DEBUG
+
+#define MASTER_LEFT        // or MASTER_RIGHT
+#define SPLIT_SERIAL_PULLUP
+// #define SPLIT_TRANSPORT_CLASSIC
+
+// #define SPLIT_USB_TIMEOUT 10000
+// #define SPLIT_USB_TIMEOUT_POLL 10 
