@@ -2,58 +2,62 @@
 
 
 enum LAYERS {
-    QWERTY,
-    MIRROR,
-    FKEYS,
-    CURSORY,
-    TRNS
+    LAYER_QWERTY,
+    LAYER_MIRROR,
+    LAYER_FUNC,
+    LAYER_MOUSE,
+    LAYER_SYSTEM,
+    LAYER_
 };
+const uint16_t MIRROR = MO(LAYER_MIRROR);
+const uint16_t FUNC = MO(LAYER_FUNC);
+const uint16_t MOUSE = MO(LAYER_MOUSE);
+const uint16_t SYSTEM = MO(LAYER_SYSTEM);
+const uint16_t NAV = MO(LAYER_SYSTEM);
+const uint16_t VOL_UP = KC_KB_VOLUME_UP;
+const uint16_t VOL_DOWN = KC_KB_VOLUME_DOWN;
+
+
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
-    [QWERTY] = LAYOUT(
-        QK_BOOT,                KC_1,    KC_2,      KC_3,    KC_4,    KC_5,             KC_6,   KC_7,    KC_8,    KC_9,    KC_0,    KC_MINS,
-        KC_LBRC,                KC_Q,    KC_W,      KC_E,    KC_R,    KC_T,             KC_Y,   KC_U,    KC_I,    KC_O,    KC_P,    KC_RBRC,
-        LT(CURSORY,KC_EQL),     KC_A,    KC_S,      KC_D,    KC_F,    KC_G,             KC_H,   KC_J,    KC_K,    KC_L,    KC_SCLN, KC_QUOT,
-        LT(FKEYS,KC_TAB),       KC_Z,    KC_X,      KC_C,    KC_V,    KC_B,             KC_N,   KC_M,    KC_COMM, KC_DOT,  KC_SLSH, KC_BSLS,
-        KC_A,                   KC_B,   KC_C,       KC_D,                               KC_E,   KC_F,   KC_G, KC_H,  
-        KC_I,                   KC_J,   KC_K,                                           KC_L,   KC_M,   KC_N
+    [LAYER_QWERTY] = LAYOUT(
+        KC_GRV,		KC_1,		KC_2,		KC_3,		KC_4,		KC_5,				KC_6,		KC_7,		KC_8,		KC_9,		KC_0,		KC_MINS,
+        KC_LBRC,	KC_Q,		KC_W,		KC_E,		KC_R,		KC_T,				KC_Y,		KC_U,		KC_I,		KC_O,		KC_P,		KC_RBRC,
+        KC_LALT,	KC_A,		KC_S,		KC_D,		KC_F,		KC_G,				KC_H,		KC_J,		KC_K,		KC_L,		KC_SCLN,	KC_QUOT,
+        KC_LSFT,	KC_Z,		KC_X,		KC_C,		KC_V,		KC_B,				KC_N,		KC_M,		KC_COMM,	KC_DOT,		KC_SLSH,	KC_BSLS,
+        KC_TAB,		KC_SPC,		FUNC,		KC_LCTL,															KC_SPC,		KC_RSFT,	KC_RCTL,	KC_EQL,  
+        MIRROR,		MOUSE,		KC_LGUI,																					KC_BSPC,	KC_M,		KC_ENT
     ),
-    [MIRROR] = LAYOUT(
-        KC_MINS,   KC_0,      KC_9,    KC_8,    KC_7,    KC_6,            KC_TRNS,    KC_TRNS,    KC_TRNS,   KC_TRNS,  KC_TRNS, KC_TRNS,
-        KC_RBRC,  KC_P,      KC_O,    KC_I,    KC_U,    KC_Y,            KC_TRNS,    KC_TRNS,    KC_TRNS,   KC_TRNS,  KC_TRNS, KC_TRNS,
-        KC_QUOT,  KC_SCLN,   KC_L,    KC_K,    KC_J,    KC_H,            KC_TRNS,    KC_TRNS,    KC_TRNS,   KC_TRNS,  KC_TRNS, KC_TRNS,
-        KC_BSLS,  KC_SLSH,   KC_DOT,  KC_COMM, KC_M,    KC_N,            KC_TRNS,    KC_TRNS,    KC_TRNS,   KC_TRNS,  KC_TRNS, KC_TRNS,
-        KC_TRNS, KC_TRNS,   KC_TRNS,  KC_TRNS, 
-        KC_TRNS, KC_TRNS, KC_TRNS,          
-        KC_TRNS, KC_TRNS,   KC_TRNS,  KC_TRNS, 
-        KC_TRNS, KC_TRNS, KC_TRNS      
+    [LAYER_MIRROR] = LAYOUT(
+        KC_MINS,	KC_0,		KC_9,		KC_8,		KC_7,		KC_6,				_______,	_______,	_______,	_______,	_______,	_______,
+        KC_RBRC,	KC_P,		KC_O,		KC_I,		KC_U,		KC_Y,				_______,	_______,	_______,	_______,	_______,	_______,
+        KC_QUOT,	KC_SCLN,	KC_L,		KC_K,		KC_J,		KC_H,				_______,	_______,	_______,	_______,	_______,	_______,
+        KC_BSLS,	KC_SLSH,	KC_DOT,		KC_COMM,	KC_M,		KC_N,				_______,	_______,	_______,	_______,	_______,	_______,
+        _______,	_______,	_______,	_______,															_______,	_______,	_______,	_______,  
+        _______,	_______,	_______,																					_______,	_______,	_______
     ),
-    [FKEYS] = LAYOUT(
-        KC_TRNS,  KC_TRNS,   KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS,       KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS,
-        KC_TRNS,  KC_BRIU,   KC_F1,      KC_F2,      KC_F3,      KC_F4,         KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS,
-        KC_TRNS,  KC_BRID,   KC_F5,      KC_F6,      KC_F7,      KC_F8,         KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS,
-        KC_TRNS,  KC_PSCR,   KC_F9,      KC_F10,      KC_F11,     KC_F12,         KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS,
-        KC_TRNS, KC_TRNS,   KC_TRNS,  KC_TRNS, 
-        KC_TRNS, KC_TRNS, KC_TRNS,          
-        KC_TRNS, KC_TRNS,   KC_TRNS,  KC_TRNS, 
-        KC_TRNS, KC_TRNS, KC_TRNS    
+    [LAYER_FUNC] = LAYOUT(
+        KC_F1,		KC_F2,		KC_F3,		KC_F4,		KC_F5,		KC_F6,				_______,	_______,	_______,	_______,	_______,	_______,
+        KC_F7,		KC_F10,		_______,	KC_UP,		_______,	KC_F18,				_______,	_______,	_______,	_______,	_______,	_______,
+        KC_F8,		KC_F11,		KC_LEFT,	KC_DOWN,	KC_RGHT,	KC_F17,				_______,	_______,	_______,	_______,	_______,	_______,
+        KC_F9,		KC_F12,		KC_F13,		KC_F14,		KC_F15,		KC_F16,				_______,	_______,	_______,	_______,	_______,	_______,
+        _______,	_______,	_______,	_______,															_______,	_______,	_______,	_______,  
+        _______,	_______,	_______,																					_______,	_______,	_______
     ),
-    [CURSORY] = LAYOUT(
-        KC_TRNS,  KC_TRNS,   KC_TRNS,                   KC_TRNS,                KC_TRNS,                KC_TRNS,       KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS,
-        KC_TRNS,  KC_TRNS,   KC_TRNS,                   QK_MOUSE_WHEEL_UP,      KC_TRNS,                QK_MOUSE_ACCELERATION_0,       KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS,
-        KC_TRNS,  KC_TRNS,   QK_MOUSE_WHEEL_LEFT,       QK_MOUSE_WHEEL_DOWN,    QK_MOUSE_WHEEL_RIGHT,    QK_MOUSE_ACCELERATION_1,       KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS,
-        KC_TRNS,  KC_TRNS,   QK_MOUSE_BUTTON_1,         QK_MOUSE_BUTTON_3,      QK_MOUSE_BUTTON_2,      QK_MOUSE_ACCELERATION_2,       KC_TRNS,    KC_TRNS,    KC_TRNS, KC_TRNS,  KC_TRNS, KC_TRNS,
-        KC_TRNS, KC_TRNS,   KC_TRNS,  KC_TRNS, 
-        KC_TRNS, KC_TRNS, KC_TRNS,          
-        KC_TRNS, KC_TRNS,   KC_TRNS,  KC_TRNS, 
-        KC_TRNS, KC_TRNS, KC_TRNS    
+    [LAYER_MOUSE] = LAYOUT(
+        KC_CAPS,	KC_F19,		KC_F20,		KC_F21,		KC_F22,		KC_F23,				_______,	_______,	_______,	_______,	_______,	_______,
+        KC_BRIU,	VOL_UP,		_______,	MS_WHLU,	_______,	_______,			_______,	_______,	_______,	_______,	_______,	_______,
+        KC_BRID,	VOL_DOWN,	MS_WHLL,	MS_WHLD,	MS_WHLR,	_______,			_______,	_______,	_______,	_______,	_______,	_______,
+        KC_PSCR,	_______,	MS_BTN1,	MS_BTN3,	MS_BTN2,	_______,			_______,	_______,	_______,	_______,	_______,	_______,
+        _______,	_______,	_______,	_______,															_______,	_______,	_______,	_______,  
+        _______,	_______,	_______,																					_______,	_______,	_______
     )
     // [TRNS] = LAYOUT(
-    //     KC_TRNS,  KC_TRNS,   KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS,       KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS,
-    //     KC_TRNS,  KC_TRNS,   KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS,       KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS,
-    //     KC_TRNS,  KC_TRNS,   KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS,       KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS,
-    //     KC_TRNS,  KC_TRNS,   KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS,       KC_TRNS,    KC_TRNS,    KC_TRNS, KC_TRNS,  KC_TRNS, KC_TRNS,
-    //     KC_TRNS, KC_TRNS,   KC_TRNS,  KC_TRNS, KC_TRNS,                         
-    //     KC_TRNS,  KC_TRNS, KC_TRNS,  KC_TRNS,   KC_TRNS
+    //     _______,  _______,   _______,    _______,    _______,    _______,       _______,    _______,    _______,    _______,    _______,    _______,
+    //     _______,  _______,   _______,    _______,    _______,    _______,       _______,    _______,    _______,    _______,    _______,    _______,
+    //     _______,  _______,   _______,    _______,    _______,    _______,       _______,    _______,    _______,    _______,    _______,    _______,
+    //     _______,  _______,   _______,    _______,    _______,    _______,       _______,    _______,    _______, _______,  _______, _______,
+    //     _______, _______,   _______,  _______, _______,                         
+    //     _______,  _______, _______,  _______,   _______
     // )
 };
 
@@ -63,6 +67,7 @@ const uint16_t PROGMEM K_ESC[] = {KC_W, KC_F, COMBO_END};
 const uint16_t PROGMEM K_PGUP[] = {KC_W, KC_R, COMBO_END};
 const uint16_t PROGMEM K_PGDN[] = {KC_X, KC_V, COMBO_END};
 const uint16_t PROGMEM K_BSPC[] = {KC_G, KC_T, COMBO_END};
+const uint16_t PROGMEM K_BOOT[] = {KC_F2, KC_F11, COMBO_END};
 
 combo_t key_combos[] = {
     COMBO(K_ENT, KC_ENT),
@@ -70,5 +75,7 @@ combo_t key_combos[] = {
     COMBO(K_ESC, KC_ESC), 
     COMBO(K_PGUP, KC_PGUP), 
     COMBO(K_PGDN, KC_PGDN), 
-    COMBO(K_BSPC, KC_BACKSPACE) 
+    COMBO(K_BSPC, KC_BACKSPACE),
+
+    COMBO(K_BOOT, QK_BOOT)
 };

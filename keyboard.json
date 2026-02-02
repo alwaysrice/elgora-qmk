@@ -17,7 +17,7 @@
         "enabled": true,
         "serial": {
             "driver": "vendor",
-            "pin": "GP1"
+            "pin": "GP0"
         },
         "transport": {
             "protocol": "serial"
