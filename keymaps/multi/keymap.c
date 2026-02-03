@@ -15,7 +15,7 @@ const uint16_t MOUSE = MO(LAYER_MOUSE);
 const uint16_t SYSTEM = MO(LAYER_SYSTEM);
 const uint16_t NAV = MO(LAYER_SYSTEM);
 const uint16_t VOL_UP = KC_KB_VOLUME_UP;
-const uint16_t VOL_DOWN = KC_KB_VOLUME_DOWN;
+const uint16_t VOL_DOWN = KC_KB_VOLUME_DOWN;    
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [LAYER_QWERTY] = LAYOUT(
@@ -29,26 +29,26 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [LAYER_MIRROR] = LAYOUT(
         KC_MINS,	KC_0,		KC_9,		KC_8,		KC_7,		KC_6,				_______,	_______,	_______,	_______,	_______,	_______,
         KC_RBRC,	KC_P,		KC_O,		KC_I,		KC_U,		KC_Y,				_______,	_______,	KC_UP,		_______,	_______,	_______,
-        KC_QUOT,	KC_SCLN,	KC_L,		KC_K,		KC_J,		KC_H,				_______,	KC_LEFT,	KC_DOWN,	KC_RGHT,	_______,	_______,
-        KC_BSLS,	KC_SLSH,	KC_DOT,		KC_COMM,	KC_M,		KC_N,				_______,	_______,	_______,	_______,	_______,	_______,
-        _______,	_______,	_______,	_______,															_______,	_______,	_______,	_______,  
-        _______,	_______,	_______,																					_______,	_______,	_______
+        _______,	KC_SCLN,	KC_L,		KC_K,		KC_J,		KC_H,				_______,	KC_LEFT,	KC_DOWN,	KC_RGHT,	_______,	_______,
+        _______,	KC_SLSH,	KC_DOT,		KC_COMM,	KC_M,		KC_N,				_______,	_______,	_______,	_______,	_______,	_______,
+        KC_BSLS,	KC_QUOT,	KC_EQL,	    _______,															_______,	_______,	_______,	_______,  
+        _______,	KC_BSPC,	_______,																					_______,	_______,	_______
     ),
     [LAYER_FUNC] = LAYOUT(
         KC_F6,		KC_F1,		KC_F2,		KC_F3,		KC_F4,		KC_F5,				_______,	_______,	_______,	_______,	_______,	_______,
-        KC_F7,		KC_F10,		_______,	KC_UP,		_______,	KC_F18,				_______,	_______,	KC_UP,		_______,	_______,	_______,
-        KC_F8,		KC_F11,		KC_LEFT,	KC_DOWN,	KC_RGHT,	KC_F17,				_______,	KC_LEFT,	KC_DOWN,	KC_RGHT,	_______,	_______,
-        KC_F9,		KC_F12,		KC_F13,		KC_F14,		KC_F15,		KC_F16,				_______,	_______,	_______,	_______,	_______,	_______,
-        _______,	_______,	_______,	_______,															_______,	_______,	_______,	_______,  
+        _______,	KC_F10,		_______,	KC_UP,		_______,	MEH(KC_F6),			_______,	_______,	KC_UP,		_______,	_______,	_______,
+        _______,	KC_F11,		KC_LEFT,	KC_DOWN,	KC_RGHT,	MEH(KC_F5),			_______,	KC_LEFT,	KC_DOWN,	KC_RGHT,	_______,	_______,
+        _______,	KC_F12,		MEH(KC_F1),	MEH(KC_F2),	MEH(KC_F3),	MEH(KC_F4),			_______,	_______,	_______,	_______,	_______,	_______,
+        _______,	_______,	_______,	_______,												_______,	_______,	_______,	_______,  
         _______,	_______,	_______,																					_______,	_______,	_______
     ),
     [LAYER_MOUSE] = LAYOUT(
-        KC_CAPS,	KC_F19,		KC_F20,		KC_F21,		KC_F22,		KC_F23,				_______,	_______,	_______,	_______,	_______,	_______,
-        KC_BRIU,	VOL_UP,		_______,	MS_WHLU,	_______,	_______,			_______,	_______,	KC_UP,		_______,	_______,	_______,
-        KC_BRID,	VOL_DOWN,	MS_WHLL,	MS_WHLD,	MS_WHLR,	_______,			_______,	KC_LEFT,	KC_DOWN,	KC_RGHT,	_______,	_______,
-        KC_PSCR,	_______,	MS_BTN1,	MS_BTN3,	MS_BTN2,	_______,			_______,	_______,	_______,	_______,	_______,	_______,
+        KC_CAPS,	MEH(KC_F7),	MEH(KC_F8),	MEH(KC_F9),	MEH(KC_F10),MEH(KC_F11),		_______,	_______,	_______,	_______,	_______,	_______,
+        KC_BRIU,	VOL_UP,		_______,	MS_WHLU,	_______,	KC_F7,  			_______,	_______,	KC_UP,		_______,	_______,	_______,
+        KC_BRID,	VOL_DOWN,	MS_WHLL,	MS_WHLD,	MS_WHLR,	KC_F8,		    	_______,	KC_LEFT,	KC_DOWN,	KC_RGHT,	_______,	_______,
+        KC_PSCR,	_______,	MS_BTN1,	MS_BTN3,	MS_BTN2,	KC_F9,		    	_______,	_______,	_______,	_______,	_______,	_______,
         _______,	_______,	_______,	_______,															_______,	_______,	_______,	_______,  
-        _______,	_______,	_______,																					_______,	_______,	_______
+        KC_LCTL,	_______,	_______,																					_______,	_______,	_______
     )
     // [TRNS] = LAYOUT(
     //     _______,  _______,   _______,    _______,    _______,    _______,       _______,    _______,    _______,    _______,    _______,    _______,
