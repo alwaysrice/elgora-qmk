@@ -1,9 +1,7 @@
-## Elgora Keyboard
-
-![](pictures/butterfly.jpg)
+## Elgora Mk 2
 
 ### Compiling
 ```
-qmk compile -kb elgora -km default
+qmk compile -kb elgora -km multi
 ```
 Generates `*.utf2` in `.build/` 
